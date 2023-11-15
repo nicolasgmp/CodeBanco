@@ -1,16 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "ContaBancaria.h"
 
-Conta contas[MAX_SIZE];
+size_t tamanho = MAX_SIZE;
+Conta *contaAtual = NULL;
+Conta *contas = NULL;
 int contadorClientes = 0;
 
-void limpaBuffer() {
+void limpaBuffer()
+{
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-int menu() {
+int menu()
+{
     int op = OP_NAO_SELECIONADA;
 
     printf("Banco\n");
@@ -29,8 +34,9 @@ int menu() {
     return op;
 }
 
-void inserir() {
-    Conta *contaAtual = &contas[contadorClientes];
+void inserir()
+{
+    contaAtual = &contas[contadorClientes];
 
     printf("Digite os dados solicitados\n");
 
@@ -40,20 +46,62 @@ void inserir() {
     limpaBuffer();
     fgets(contaAtual->cliente, 51, stdin);
 
-    printf("É uma conta especial? 1 - Sim / 2 - Nao\n");
-    int especial;
-    scanf("%d", &especial);
-    if(especial == 1) contaAtual->especial = TRUE;
-    else if(especial == 2) contaAtual->especial = FALSE;
+    int especial = -1;
+
+    do
+    {
+        printf("É uma conta especial? 1 - Sim / 2 - Nao\n");
+        scanf("%d", &especial);
+    } while (especial != 1 && especial != 2);
+    contaAtual->especial = especial == 1 ? TRUE : FALSE;
 
     printf("Digite o saldo inicial da conta: \n");
     scanf("%lf", &contaAtual->saldo);
 
-    printf("Cliente Adicionado - Dados Abaixo\n");
+    printf("\nCliente Adicionado - Dados Abaixo\n");
     printf("Numero: %d\n", contaAtual->numero);
-    printf("Nome: %s\n", contaAtual->cliente);
+    printf("Nome: %s", contaAtual->cliente);
     printf("Especial: %s\n", contaAtual->especial == TRUE ? "Sim" : "Nao");
-    printf("Saldo Inicial: %.2lf\n", contaAtual->saldo);
+    printf("Saldo Inicial: %.2lf\n\n", contaAtual->saldo);
 
     contadorClientes++;
+}
+
+void inicializar()
+{
+    contas = malloc(tamanho * sizeof(Conta));
+}
+
+void finalizar()
+{
+    free(contas);
+}
+
+void expandir()
+{
+    size_t newTamanho = tamanho * 1.5;
+    Conta *p;
+
+    p = malloc(newTamanho * sizeof(Conta));
+
+    if (!p)
+        exit(-1);
+
+    for (int i = 0; i < tamanho; i++)
+    {
+        contaAtual = &contas[i];
+        p[i].numero = contaAtual->numero;
+        strcpy(p[i].cliente, contaAtual->cliente);
+        p[i].especial = contaAtual->especial;
+        p[i].saldo = contaAtual->saldo;
+    }
+
+    free(contas);
+    contas = p;
+    tamanho = newTamanho;
+}
+
+void isEmpty()
+{
+    return contadorClientes == 0;
 }

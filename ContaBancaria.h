@@ -1,7 +1,7 @@
 #ifndef CONTABANCARIA_CONTABANCARIA_H
 #define CONTABANCARIA_CONTABANCARIA_H
 
-#define MAX_SIZE 10
+#define MAX_SIZE 2
 
 enum {
     FALSE = 0,
@@ -29,8 +29,9 @@ typedef struct {
     double saldo;
 } Conta;
 
-extern Conta contas[10];
 extern int contadorClientes;
+extern Conta *contas;
+extern Conta *contaAtual;
 
 int menu();
 void inserir();
@@ -41,5 +42,9 @@ void depositar(Conta *conta);
 void sacar(Conta *conta);
 void imprimir(Conta *conta);
 void saldoGeral(Conta *conta);
+void inicializar();
+void finalizar();
+void expandir();
+void isEmpty();
 
 #endif

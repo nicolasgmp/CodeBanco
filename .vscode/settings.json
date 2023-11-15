@@ -3,6 +3,7 @@
         "bit": "cpp",
         "compare": "cpp",
         "limits": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "contabancaria.h": "c"
     }
 }

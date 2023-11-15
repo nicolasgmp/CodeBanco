@@ -1,6 +1,7 @@
 #include "ContaBancaria.h"
 
 int main(){
+    inicializar();
     int op = OP_NAO_SELECIONADA;
 
     while(op != OP_SAIR){
@@ -12,6 +13,8 @@ int main(){
                 break;
         }
     }
+
+    finalizar();
 
     return 0;
 }
