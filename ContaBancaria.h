@@ -1,14 +1,20 @@
 #ifndef CONTABANCARIA_CONTABANCARIA_H
 #define CONTABANCARIA_CONTABANCARIA_H
 
-#define MAX_SIZE 2
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-enum {
+#define MAX_SIZE 10
+
+enum
+{
     FALSE = 0,
     TRUE
 };
 
-enum {
+enum
+{
     OP_NAO_SELECIONADA = 0,
     OP_INSERIR,
     OP_ALTERAR,
@@ -22,7 +28,8 @@ enum {
 
 typedef int BOOLEAN;
 
-typedef struct {
+typedef struct
+{
     int numero;
     char cliente[51];
     BOOLEAN especial;
@@ -32,19 +39,20 @@ typedef struct {
 extern int contadorClientes;
 extern Conta *contas;
 extern Conta *contaAtual;
+extern int especial;
 
 int menu();
 void inserir();
-void alterar(Conta *conta);
-void procurar(Conta *conta);
-void listar(Conta *conta);
-void depositar(Conta *conta);
-void sacar(Conta *conta);
-void imprimir(Conta *conta);
-void saldoGeral(Conta *conta);
+void alterar(Conta *conta, int numero);
+Conta *buscar(Conta *conta, int numero);
+void listar();
+void depositar();
+void sacar();
+void imprimir();
+void saldoGeral();
 void inicializar();
 void finalizar();
 void expandir();
-void isEmpty();
+BOOLEAN isEmpty();
 
 #endif

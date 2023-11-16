@@ -1,17 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "ContaBancaria.h"
 
 size_t tamanho = MAX_SIZE;
 Conta *contaAtual = NULL;
 Conta *contas = NULL;
 int contadorClientes = 0;
+int especial = -1;
 
 void limpaBuffer()
 {
     int c;
-    while ((c = getchar()) != '\n' && c != EOF);
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
 }
 
 int menu()
@@ -42,11 +41,12 @@ void inserir()
 
     contaAtual->numero = contadorClientes;
 
-    printf("Nome do cliente: ");
     limpaBuffer();
-    fgets(contaAtual->cliente, 51, stdin);
-
-    int especial = -1;
+    do
+    {
+        printf("Nome do cliente: ");
+        fgets(contaAtual->cliente, 51, stdin);
+    } while (strlen(contaAtual->cliente) <= 3);
 
     do
     {
@@ -58,13 +58,49 @@ void inserir()
     printf("Digite o saldo inicial da conta: \n");
     scanf("%lf", &contaAtual->saldo);
 
-    printf("\nCliente Adicionado - Dados Abaixo\n");
+    printf("Cliente Adicionado - Dados Abaixo\n");
     printf("Numero: %d\n", contaAtual->numero);
     printf("Nome: %s", contaAtual->cliente);
     printf("Especial: %s\n", contaAtual->especial == TRUE ? "Sim" : "Nao");
     printf("Saldo Inicial: %.2lf\n\n", contaAtual->saldo);
 
     contadorClientes++;
+}
+
+void alterar(Conta *conta, int numero)
+{
+    limpaBuffer();
+    do
+    {
+        printf("Digite o novo nome: ");
+        fgets(conta->cliente, 51, stdin);
+    } while (strlen(conta->cliente) <= 3);
+
+    do
+    {
+        printf("Especial? 1 - Sim / 2 - Nao\n");
+        scanf("%d", &especial);
+    } while (especial != 1 && especial != 2);
+    conta->especial = especial == 1 ? TRUE : FALSE;
+
+    printf("Dados Alterados\n");
+    printf("Numero: %d\n", conta->numero);
+    printf("Nome: %s", conta->cliente);
+    printf("Especial: %s\n", conta->especial == TRUE ? "Sim" : "Nao");
+    printf("Saldo Inicial: %.2lf\n\n", conta->saldo);
+}
+
+Conta *buscar(Conta *conta, int numero)
+{
+
+    for (int i = 0; i < contadorClientes; i++)
+    {
+        contaAtual = &conta[i];
+        if (contaAtual->numero == numero)
+            return contaAtual;
+    }
+
+    return NULL;
 }
 
 void inicializar()
@@ -101,7 +137,7 @@ void expandir()
     tamanho = newTamanho;
 }
 
-void isEmpty()
+BOOLEAN isEmpty()
 {
     return contadorClientes == 0;
 }
