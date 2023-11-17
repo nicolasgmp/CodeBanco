@@ -36,20 +36,22 @@ typedef struct
     double saldo;
 } Conta;
 
-extern int contadorClientes;
+extern size_t tamanho;
 extern Conta *contas;
 extern Conta *contaAtual;
+extern Conta *encontrado;
+extern int contadorClientes;
 extern int especial;
 
 int menu();
-void inserir();
+int inserir(Conta *l_contas, int totalContas);
 void alterar(Conta *conta, int numero);
-Conta *buscar(Conta *conta, int numero);
-void listar();
-void depositar();
-void sacar();
-void imprimir();
-void saldoGeral();
+void listar(Conta *l_contas, int totalContas);
+void depositar(Conta *l_contas, int totalContas, int numero, double valor);
+void sacar(Conta *l_contas, int totalContas, int numero, double valor);
+void imprimir(Conta *l_contas, int totalContas, int numero);
+double saldoGeral(Conta *l_contas, int totalContas);
+Conta *buscar(Conta *l_contas, int totalContas, int numero);
 void inicializar();
 void finalizar();
 void expandir();
