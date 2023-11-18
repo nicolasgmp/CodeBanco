@@ -15,7 +15,12 @@ int main()
         switch (op)
         {
         case OP_INSERIR:
-            contadorClientes = inserir(contas, contadorClientes);
+            if(isFull())
+            {
+                printf("Realocando memoria");
+                expandir();
+            }
+            inserir(contas);
             break;
         case OP_ALTERAR:
             printf("Digite o número da conta: ");
@@ -52,12 +57,12 @@ int main()
             imprimir(contas, contadorClientes, num);
             break;
         case OP_SALDOGERAL:
-            double saldo = saldoGeral(contas, contadorClientes);
-            printf("Saldo acumulado: %.4lf\n", saldo);
+            printf("Saldo acumulado: %.4lf\n", saldoGeral(contas, contadorClientes));
+            break;
+        case OP_SAIR:
             break;
         default:
             printf("Digite uma das opcoes no menu\n");
-
         }
     }
 

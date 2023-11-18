@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_SIZE 10
+#define MAX_SIZE 2
 
 enum
 {
@@ -44,7 +44,7 @@ extern int contadorClientes;
 extern int especial;
 
 int menu();
-int inserir(Conta *l_contas, int totalContas);
+int inserir(Conta *l_contas);
 void alterar(Conta *conta, int numero);
 void listar(Conta *l_contas, int totalContas);
 void depositar(Conta *l_contas, int totalContas, int numero, double valor);
@@ -56,5 +56,6 @@ void inicializar();
 void finalizar();
 void expandir();
 BOOLEAN isEmpty();
+BOOLEAN isFull();
 
 #endif

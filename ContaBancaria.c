@@ -34,14 +34,19 @@ int menu()
     return op;
 }
 
-int inserir(Conta *l_contas, int totalContas)
+int inserir(Conta *l_contas)
 {
+    if(isFull())
+    {
+        printf("Realocando memoria!");
+        expandir();
+    }
 
-    contaAtual = &l_contas[totalContas];
+    contaAtual = &l_contas[contadorClientes];
 
     printf("Digite os dados solicitados\n");
 
-    contaAtual->numero = totalContas + 1;
+    contaAtual->numero = contadorClientes + 1;
 
     limpaBuffer();
     do
@@ -52,7 +57,7 @@ int inserir(Conta *l_contas, int totalContas)
 
     do
     {
-        printf("É uma conta especial? 1 - Sim / 2 - Nao\n");
+        printf("Eh uma conta especial? 1 - Sim / 2 - Nao\n");
         scanf("%d", &especial);
     } while (especial != 1 && especial != 2);
     contaAtual->especial = especial == 1 ? TRUE : FALSE;
@@ -66,7 +71,9 @@ int inserir(Conta *l_contas, int totalContas)
     printf("Especial: %s\n", contaAtual->especial == TRUE ? "Sim" : "Nao");
     printf("Saldo Inicial: %.2lf\n\n", contaAtual->saldo);
 
-    return totalContas + 1;
+    contadorClientes++;
+
+    return TRUE;
 }
 
 void alterar(Conta *conta, int numero)
@@ -87,11 +94,10 @@ void alterar(Conta *conta, int numero)
 
     printf("\nCliente Atualizado - Dados Abaixo\n");
     printf("Numero: %d\n", conta->numero);
-    printf("Nome: %s", conta->cliente);
+    printf("Nome: %s\n", conta->cliente);
     printf("Especial: %s\n", conta->especial == TRUE ? "Sim" : "Nao");
     printf("Saldo: %.2lf\n\n", conta->saldo);
 }
-
 
 void listar(Conta *l_contas, int totalContas)
 {
@@ -106,7 +112,7 @@ void listar(Conta *l_contas, int totalContas)
     {
         contaAtual = &l_contas[i];
         printf("Numero: %d\n", contaAtual->numero);
-        printf("Nome: %s", contaAtual->cliente);
+        printf("Nome: %s\n", contaAtual->cliente);
         printf("Especial: %s\n", contaAtual->especial == TRUE ? "Sim" : "Nao");
         printf("Saldo: %.2lf\n\n", contaAtual->saldo);
     }
@@ -114,7 +120,7 @@ void listar(Conta *l_contas, int totalContas)
 
 void depositar(Conta *l_contas, int totalContas, int numero, double valor)
 {
-    if(isEmpty())
+    if (isEmpty())
     {
         printf("Lista de Clientes vazia\n");
         return;
@@ -122,7 +128,7 @@ void depositar(Conta *l_contas, int totalContas, int numero, double valor)
 
     contaAtual = buscar(l_contas, totalContas, numero);
 
-    if(contaAtual)
+    if (contaAtual)
     {
         contaAtual->saldo += valor;
         printf("\nDeposito efetuado com sucesso\n\n");
@@ -136,7 +142,7 @@ void depositar(Conta *l_contas, int totalContas, int numero, double valor)
 
 void sacar(Conta *l_contas, int totalContas, int numero, double valor)
 {
-    if(isEmpty())
+    if (isEmpty())
     {
         printf("Lista de Clientes vazia\n");
         return;
@@ -144,8 +150,13 @@ void sacar(Conta *l_contas, int totalContas, int numero, double valor)
 
     contaAtual = buscar(l_contas, totalContas, numero);
 
-    if(contaAtual)
+    if (contaAtual)
     {
+        if(contaAtual->saldo < valor)
+        {
+            printf("Saldo insuficiente!\n");
+            return;
+        }
         contaAtual->saldo -= valor;
         printf("\nSaque efetuado com sucesso\n\n");
         return;
@@ -189,7 +200,7 @@ double saldoGeral(Conta *l_contas, int totalContas)
     }
 
     double saldo = 0;
-    for(int i = 0; i < totalContas; i++)
+    for (int i = 0; i < totalContas; i++)
     {
         contaAtual = &l_contas[i];
         saldo += contaAtual->saldo;
@@ -247,4 +258,9 @@ void expandir()
 BOOLEAN isEmpty()
 {
     return contadorClientes == 0;
+}
+
+BOOLEAN isFull()
+{
+    return contadorClientes == MAX_SIZE;
 }
