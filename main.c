@@ -15,9 +15,9 @@ int main()
         switch (op)
         {
         case OP_INSERIR:
-            if(isFull())
+            if (isFull())
             {
-                printf("Realocando memoria");
+                printf("Sistema Cheio! Expandindo\n");
                 expandir();
             }
             inserir(contas);

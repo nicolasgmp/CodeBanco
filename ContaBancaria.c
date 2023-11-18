@@ -36,12 +36,6 @@ int menu()
 
 int inserir(Conta *l_contas)
 {
-    if(isFull())
-    {
-        printf("Realocando memoria!");
-        expandir();
-    }
-
     contaAtual = &l_contas[contadorClientes];
 
     printf("Digite os dados solicitados\n");
@@ -94,7 +88,7 @@ void alterar(Conta *conta, int numero)
 
     printf("\nCliente Atualizado - Dados Abaixo\n");
     printf("Numero: %d\n", conta->numero);
-    printf("Nome: %s\n", conta->cliente);
+    printf("Nome: %s", conta->cliente);
     printf("Especial: %s\n", conta->especial == TRUE ? "Sim" : "Nao");
     printf("Saldo: %.2lf\n\n", conta->saldo);
 }
@@ -112,7 +106,7 @@ void listar(Conta *l_contas, int totalContas)
     {
         contaAtual = &l_contas[i];
         printf("Numero: %d\n", contaAtual->numero);
-        printf("Nome: %s\n", contaAtual->cliente);
+        printf("Nome: %s", contaAtual->cliente);
         printf("Especial: %s\n", contaAtual->especial == TRUE ? "Sim" : "Nao");
         printf("Saldo: %.2lf\n\n", contaAtual->saldo);
     }
@@ -152,7 +146,7 @@ void sacar(Conta *l_contas, int totalContas, int numero, double valor)
 
     if (contaAtual)
     {
-        if(contaAtual->saldo < valor)
+        if (contaAtual->saldo < valor)
         {
             printf("Saldo insuficiente!\n");
             return;
@@ -233,21 +227,21 @@ void finalizar()
 
 void expandir()
 {
-    size_t newTamanho = tamanho * 1.5;
-    Conta *p;
-
-    p = malloc(newTamanho * sizeof(Conta));
+    size_t newTamanho = (size_t)tamanho * 1.5;
+    Conta *p = malloc(newTamanho * sizeof(Conta));
 
     if (!p)
-        exit(-1);
-
-    for (int i = 0; i < tamanho; i++)
     {
-        contaAtual = &contas[i];
-        p[i].numero = contaAtual->numero;
-        strcpy(p[i].cliente, contaAtual->cliente);
-        p[i].especial = contaAtual->especial;
-        p[i].saldo = contaAtual->saldo;
+        free(contas);
+        exit(-1);
+    }
+
+    for (int i = 0; i < contadorClientes; i++)
+    {
+        p[i].numero = contas[i].numero;
+        strcpy(p[i].cliente, contas[i].cliente);
+        p[i].especial = contas[i].especial;
+        p[i].saldo = contas[i].saldo;
     }
 
     free(contas);
