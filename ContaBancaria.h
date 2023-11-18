@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_SIZE 2
+#define MAX_SIZE 5
 
 enum
 {
@@ -47,9 +47,9 @@ int menu();
 int inserir(Conta *l_contas);
 void alterar(Conta *conta, int numero);
 void listar(Conta *l_contas, int totalContas);
-void depositar(Conta *l_contas, int totalContas, int numero, double valor);
-void sacar(Conta *l_contas, int totalContas, int numero, double valor);
-void imprimir(Conta *l_contas, int totalContas, int numero);
+void depositar(Conta *conta, double valor);
+void sacar(Conta *conta, double valor);
+void imprimir(Conta *conta);
 double saldoGeral(Conta *l_contas, int totalContas);
 Conta *buscar(Conta *l_contas, int totalContas, int numero);
 void inicializar();

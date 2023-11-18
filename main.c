@@ -25,13 +25,14 @@ int main()
         case OP_ALTERAR:
             printf("Digite o número da conta: ");
             scanf("%d", &num);
-            Conta *encontrado = buscar(contas, contadorClientes, num);
+            encontrado = buscar(contas, contadorClientes, num);
 
             if (!encontrado)
             {
                 printf("Cliente não encontrado");
                 break;
             }
+
             alterar(encontrado, num);
             break;
         case OP_LISTAR:
@@ -40,21 +41,40 @@ int main()
         case OP_DEPOSITAR:
             printf("Digite o numero da conta: ");
             scanf("%d", &num);
+            encontrado = buscar(contas, contadorClientes, num);
+            if (!encontrado)
+            {
+                printf("Cliente não encontrado");
+                break;
+            }
+
             printf("Digite o valor a ser depositado: ");
             scanf("%lf", &valor);
-            depositar(contas, contadorClientes, num, valor);
+            depositar(encontrado, valor);
             break;
         case OP_SACAR:
             printf("Digite o numero da conta: ");
             scanf("%d", &num);
+            encontrado = buscar(contas, contadorClientes, num);
+            if (!encontrado)
+            {
+                printf("Cliente não encontrado");
+                break;
+            }
             printf("Digite o valor a ser sacado: ");
             scanf("%lf", &valor);
-            sacar(contas, contadorClientes, num, valor);
+            sacar(encontrado, valor);
             break;
         case OP_IMPRIMIR:
             printf("Digite o numero da conta: ");
             scanf("%d", &num);
-            imprimir(contas, contadorClientes, num);
+            encontrado = buscar(contas, contadorClientes, num);
+            if (!encontrado)
+            {
+                printf("Cliente não encontrado");
+                break;
+            }
+            imprimir(encontrado);
             break;
         case OP_SALDOGERAL:
             printf("Saldo acumulado: %.4lf\n", saldoGeral(contas, contadorClientes));

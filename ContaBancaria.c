@@ -112,7 +112,7 @@ void listar(Conta *l_contas, int totalContas)
     }
 }
 
-void depositar(Conta *l_contas, int totalContas, int numero, double valor)
+void depositar(Conta *conta, double valor)
 {
     if (isEmpty())
     {
@@ -120,21 +120,15 @@ void depositar(Conta *l_contas, int totalContas, int numero, double valor)
         return;
     }
 
-    contaAtual = buscar(l_contas, totalContas, numero);
-
-    if (contaAtual)
+    if (conta)
     {
-        contaAtual->saldo += valor;
+        conta->saldo += valor;
         printf("\nDeposito efetuado com sucesso\n\n");
         return;
     }
-    else
-    {
-        printf("Cliente nao encontrado\n\n");
-    }
 }
 
-void sacar(Conta *l_contas, int totalContas, int numero, double valor)
+void sacar(Conta *conta, double valor)
 {
     if (isEmpty())
     {
@@ -142,26 +136,20 @@ void sacar(Conta *l_contas, int totalContas, int numero, double valor)
         return;
     }
 
-    contaAtual = buscar(l_contas, totalContas, numero);
-
-    if (contaAtual)
+    if (conta)
     {
-        if (contaAtual->saldo < valor)
+        if (conta->saldo < valor)
         {
             printf("Saldo insuficiente!\n");
             return;
         }
-        contaAtual->saldo -= valor;
+        conta->saldo -= valor;
         printf("\nSaque efetuado com sucesso\n\n");
         return;
     }
-    else
-    {
-        printf("Cliente nao encontrado\n\n");
-    }
 }
 
-void imprimir(Conta *l_contas, int totalContas, int numero)
+void imprimir(Conta *conta)
 {
     if (isEmpty())
     {
@@ -169,19 +157,13 @@ void imprimir(Conta *l_contas, int totalContas, int numero)
         return;
     }
 
-    contaAtual = buscar(l_contas, totalContas, numero);
-
-    if (contaAtual)
+    if (conta)
     {
         printf("\nCliente encontrado - Dados Abaixo\n");
-        printf("Numero: %d\n", contaAtual->numero);
-        printf("Nome: %s", contaAtual->cliente);
-        printf("Especial: %s\n", contaAtual->especial == TRUE ? "Sim" : "Nao");
-        printf("Saldo: %.2lf\n\n", contaAtual->saldo);
-    }
-    else
-    {
-        printf("Cliente nao encontrado\n");
+        printf("Numero: %d\n", conta->numero);
+        printf("Nome: %s", conta->cliente);
+        printf("Especial: %s\n", conta->especial == TRUE ? "Sim" : "Nao");
+        printf("Saldo: %.2lf\n\n", conta->saldo);
     }
 }
 
