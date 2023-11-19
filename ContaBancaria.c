@@ -7,13 +7,28 @@ Conta *encontrado = NULL;
 int contadorClientes = 0;
 int especial = -1;
 
+/**
+ * Função: limpaBuffer
+ *
+ * Esta função limpa o buffer de entrada, removendo todos os caracteres não lidos até o final da linha.
+ * Semelhante ao funcionamento do fflush(stdin) ou __fpurge(stdin), porém é funcional em qualquer SO.
+ */
 void limpaBuffer()
 {
     int c;
-    while ((c = getchar()) != '\n' && c != EOF)
+    while ((c = getchar()) != '\n')
         ;
 }
 
+/**
+ * Função: menu
+ *
+ * A função implementa um menu de opções para guiar o usuário na utilização do sistema bancário.
+ * Exibe opções para inserir, alterar, listar, depositar, sacar, imprimir, saldo geral e sair.
+ * Solicita a opção ao usuário.
+ *
+ * @return A opção escolhida pelo usuário
+ */
 int menu()
 {
     int op = OP_NAO_SELECIONADA;
@@ -34,7 +49,14 @@ int menu()
     return op;
 }
 
-int inserir(Conta *l_contas)
+/**
+ * Função: inserir
+ *
+ * Esta função solicita os dados para a inserção de uma nova conta no sistema. Ela faz algumas verifições básicas como não deixar que um nome com menos de 3 caracteres seja inserido, além de garantir que o status de especial seja 1 para "SIM" ou 2 para "NÃO". Após isso, os dados cadastrados são mostrados.
+ *
+ * @param l_contas Ponteiro para a lista de contas existente.
+ */
+void inserir(Conta *l_contas)
 {
     contaAtual = &l_contas[contadorClientes];
 
@@ -66,11 +88,16 @@ int inserir(Conta *l_contas)
     printf("Saldo Inicial: %.2lf\n\n", contaAtual->saldo);
 
     contadorClientes++;
-
-    return TRUE;
 }
 
-void alterar(Conta *conta, int numero)
+/**
+ * Função: alterar
+ *
+ * Implementa a possibilidade de alterar os dados de um cliente já cadastrado no sistema. Porém, apenas nome e status de especial podem ser alterados. Ela faz algumas verifições básicas como não deixar que um nome com menos de 3 caracteres seja inserido, além de garantir que o status de especial seja 1 para "SIM" ou 2 para "NÃO". Após a alteração, o cliente atualizado é mostrado.
+ *
+ * @param conta Ponteiro para a conta que será alterada
+ */
+void alterar(Conta *conta)
 {
     limpaBuffer();
     do
@@ -93,6 +120,14 @@ void alterar(Conta *conta, int numero)
     printf("Saldo: %.2lf\n\n", conta->saldo);
 }
 
+/**
+ * Função: listar
+ *
+ * Verifica se a lista passada como parâmetro não é vazia. Se não estiver vazia, um loop for de 0 até o total de contas cadastradas é realizado exibindo os detalhes de cada um dos clientes, incluindo número de conta, nome, status e saldo.
+ *
+ * @param l_contas Ponteiro para a lista de contas existentes.
+ * @param totalContas Número inteiro da quantidade de contas cadastradas.
+ */
 void listar(Conta *l_contas, int totalContas)
 {
     if (isEmpty())
@@ -112,6 +147,14 @@ void listar(Conta *l_contas, int totalContas)
     }
 }
 
+/**
+ * Função: depositar
+ *
+ * A função verifica se a lista de clientes está vazia. Se não estiver, verifica se a conta passada como parâmetro existe. Se existir, o valor passado como parâmetro é somado ao saldo da conta e uma mensagem de sucesso é exibida.
+ *
+ * @param conta Ponteiro para a conta que o valor será depositado.
+ * @param valor A quantia a ser depositada na conta.
+ */
 void depositar(Conta *conta, double valor)
 {
     if (isEmpty())
@@ -128,6 +171,14 @@ void depositar(Conta *conta, double valor)
     }
 }
 
+/**
+ * Função sacar
+ *
+ * A função verifica se a lista de clientes está vazia. Se não estiver, verifica se a conta passada por parâmetro existe. Se existir, verifica se o saldo da conta é menor que o valor passado por parâmetro, caso verdadeiro, a quantia é retirada do saldo da conta em questão.
+ *
+ * @param conta Ponteiro para a conta na qual o valor será sacado.
+ * @param valor A quantia a ser retirada da conta.
+ */
 void sacar(Conta *conta, double valor)
 {
     if (isEmpty())
@@ -149,6 +200,13 @@ void sacar(Conta *conta, double valor)
     }
 }
 
+/**
+ * Função: imprimir
+ *
+ * A função verifica se a lista de clientes está vazia. Se não estiver, verifica se a conta passada por parâmetro existe. Se existir, os detalhes do cliente em questão são exibidos na tela.
+ *
+ * @param conta Ponteiro para a conta a ser impressa.
+ */
 void imprimir(Conta *conta)
 {
     if (isEmpty())
@@ -167,6 +225,16 @@ void imprimir(Conta *conta)
     }
 }
 
+/**
+ * Função: saldoGeral
+ *
+ * A função verifica se a lista de clientes está vazia. Se não estiver, itera sobre todas as contas presentes no sistema e retorna o saldo somado delas.
+ *
+ * @param l_contas Ponteiro para a lista de contas
+ * @param totalContas Inteiro do total de contas cadastradas.
+ *
+ * @return O saldo somado de todas as contas.
+ */
 double saldoGeral(Conta *l_contas, int totalContas)
 {
     if (isEmpty())
@@ -184,6 +252,17 @@ double saldoGeral(Conta *l_contas, int totalContas)
     return saldo;
 }
 
+/**
+ * Função: buscar
+ *
+ * Itera sobre todas as contas cadastradas, caso o numero da conta atual seja igual ao solicitado, retorna a conta.
+ *
+ * @param l_contas Ponteiro para a lista de contas cadastradas.
+ * @param totalContas Inteiro do número total de contas.
+ * @param numero Inteiro referente ao numero da conta buscada.
+ *
+ * @return Caso a conta seja encontrada, retorna-a. Caso contrário, é retornado NULL.
+ */
 Conta *buscar(Conta *l_contas, int totalContas, int numero)
 {
 
@@ -197,19 +276,34 @@ Conta *buscar(Conta *l_contas, int totalContas, int numero)
     return NULL;
 }
 
+/**
+ * Função: inicializar
+ *
+ * Inicializa a lista de contas de acordo com o número especificado de contas (definido por "tamanho") usando a função "malloc()" que utiliza "sizeof" para encontrar o tamanho exato de uma "Conta".
+ */
 void inicializar()
 {
     contas = malloc(tamanho * sizeof(Conta));
 }
 
+/**
+ * Função: finalizar
+ *
+ * Libera a memória alocada após o fim do uso do programa.
+ */
 void finalizar()
 {
     free(contas);
 }
 
+/**
+ * Função: expandir
+ *
+ * Calcula um novo tamanho para a lista multiplicando o tamanho atual por 2. A função aloca um novo bloco de memória com o novo tamanho e copia os dados da lista original para a nova. Se a alocação falhar, libera a memória da lista original, exibe uma mensagem de erro e encerra o programa com código "-1". Após a cópia bem-sucedida, libera a memória da lista original e atualiza o ponteiro "contas" para apontar para o novo bloco de memória.
+ */
 void expandir()
 {
-    size_t newTamanho = (size_t)tamanho * 1.5;
+    size_t newTamanho = (size_t)tamanho * 2;
     Conta *p = malloc(newTamanho * sizeof(Conta));
 
     if (!p)
@@ -231,11 +325,24 @@ void expandir()
     tamanho = newTamanho;
 }
 
+/**
+ * Função: isEmpty
+ *
+ * Verifica se o total de contas cadastradas é igual 0.
+ *
+ * @return Retorn "TRUE" caso o número de contas seja igual a 0. Caso contrário, retorna "FALSE".
+ */
 BOOLEAN isEmpty()
 {
     return contadorClientes == 0;
 }
-
+/**
+ * Função: isFull
+ *
+ * Verifica se o total de contas cadastradas é igual ao tamanho máximo.
+ *
+ * @return Retorn "TRUE" caso o número de contas seja igual ao máximo. Caso contrário, retorna "FALSE".
+ */
 BOOLEAN isFull()
 {
     return contadorClientes == MAX_SIZE;

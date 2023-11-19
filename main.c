@@ -33,7 +33,7 @@ int main()
                 break;
             }
 
-            alterar(encontrado, num);
+            alterar(encontrado);
             break;
         case OP_LISTAR:
             listar(contas, contadorClientes);
