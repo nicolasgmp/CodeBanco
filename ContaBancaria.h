@@ -44,7 +44,7 @@ extern int contadorClientes;
 extern int especial;
 
 int menu();
-int inserir(Conta *l_contas);
+void inserir(Conta *l_contas);
 void alterar(Conta *conta);
 void listar(Conta *l_contas, int totalContas);
 void depositar(Conta *conta, double valor);
