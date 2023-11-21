@@ -13,6 +13,6 @@
 Sistema para controle de contas bancárias feito com base em um dos temas propostos [neste trabalho](https://maromo71.notion.site/Trabalho-LP-Manh-e-Noite-94d594d7176f420cae42cbd910bd3716) de conclusão da disciplina de Linguagem de Programação no curso de Análise e Desenvolvimento de Sistemas da Fatec Mogi Mirim.
 
 ## Ferramentas Utilizadas
-- [Linguagem C](https://en.cppreference.com/w/c)
-- [Visual Studio Code](https://code.visualstudio.com)
-- [VIM](https://github.com/vim/vim)
+- [![C](https://skillicons.dev/icons?i=c) - Linguagem C](https://en.cppreference.com/w/c)
+- [![Visual Studio Code](https://skillicons.dev/icons?i=vscode) - VSCode](https://code.visualstudio.com)
+- [![VIM](https://skillicons.dev/icons?i=vim) - VIM](https://github.com/vim/vim)
