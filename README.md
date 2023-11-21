@@ -34,4 +34,6 @@ gcc main.c ContaBancaria.c -o nome-programa -lm
 ```
 
 - Se tudo estiver correto, o seu terminal deverá apresentar o seguinte
+```
 ![Terminal](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/print_1.png)
+```
