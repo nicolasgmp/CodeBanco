@@ -30,7 +30,7 @@ Program designed to simulate a bank account system that was made with one of the
 - Make sure that you have the gcc configured on your OS
 - Open the terminal
 - Clone git repository
-- Go to the folder destination
+- Go to the destination folder
 
 ```
 ./folder
