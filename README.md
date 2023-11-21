@@ -16,3 +16,22 @@ Sistema para controle de contas bancárias feito com base em um dos temas propos
 - [![C](https://skillicons.dev/icons?i=c) - Linguagem C](https://en.cppreference.com/w/c)
 - [![Visual Studio Code](https://skillicons.dev/icons?i=vscode) - VSCode](https://code.visualstudio.com)
 - [![VIM](https://skillicons.dev/icons?i=vim) - VIM](https://github.com/vim/vim)
+
+# Como Executar
+
+## Localmente
+
+- Clone o repósitorio do git
+- Insira o seguinte comando no terminal
+
+```
+gcc main.c ContaBancaria.c -o nome-programa -lm
+```
+
+- Rode
+```
+./nome-programa
+```
+
+Se tudo estiver correto, o seu terminal deverá apresentar o seguinte
+![Terminal]()
