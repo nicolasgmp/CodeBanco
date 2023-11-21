@@ -10,6 +10,14 @@
 
 - [English README version](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/READMEen.md)
 
+- Equipe
+```
+Nicolas Gustavo Magrini Pereira
+Leonardo Morari dos Santos
+Carlos Henrique Nóbrega da Silva
+Jesua Isaque Calefi da Silva
+```
+
 Sistema para controle de contas bancárias feito com base em um dos temas propostos [neste trabalho](https://maromo71.notion.site/Trabalho-LP-Manh-e-Noite-94d594d7176f420cae42cbd910bd3716) de conclusão da disciplina de Linguagem de Programação no curso de Análise e Desenvolvimento de Sistemas da Fatec Mogi Mirim.
 
 ## Ferramentas Utilizadas
@@ -22,6 +30,7 @@ Sistema para controle de contas bancárias feito com base em um dos temas propos
 ## Localmente
 
 - Você deve ter o gcc configurado no seu sistema operacional
+- Abra o terminal
 - Clone o repósitorio do git
 - Vá até onde o repositório foi clonado
 
