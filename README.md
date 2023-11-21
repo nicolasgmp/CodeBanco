@@ -21,7 +21,14 @@ Sistema para controle de contas bancárias feito com base em um dos temas propos
 
 ## Localmente
 
+- Você deve ter o gcc configurado no seu sistema operacional
 - Clone o repósitorio do git
+- Vá até onde o repositório foi clonado
+
+```
+cd ./pasta
+```
+
 - Insira o seguinte comando no terminal
 
 ```
@@ -29,8 +36,11 @@ gcc main.c ContaBancaria.c -o nome-programa -lm
 ```
 
 - Rode
+
 ```
-./nome-programa
+./nome-programa (Linux)
+
+nome-programa.exe (Windows)
 ```
 
 - Se tudo estiver correto, o seu terminal deverá apresentar o seguinte
@@ -38,3 +48,55 @@ gcc main.c ContaBancaria.c -o nome-programa -lm
 <p align="center">
   <img src="https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/print_1.png" alt="Terminal">
 </p>
+
+- O programa está pronto para uso
+
+## Usando Docker
+
+- Clone o repositório do git
+- Verifique se o arquivo "Dockerfile" está presente. Se não estiver, crie-o e adicione o seguinte
+
+```
+FROM gcc:latest
+WORKDIR $PWD
+COPY ContaBancaria.c ./
+COPY ContaBancaria.h ./
+COPY main.c ./
+RUN gcc ContaBancaria.c main.c -o ContaBancaria -lm
+CMD ["./ContaBancaria"]
+```
+
+- Faça o build da imagem
+
+```
+docker build -t nome-imagem .
+```
+
+- Rode o container
+
+```
+docker run --name nome-prog -it nome-imagem
+```
+
+- Para rodar o programa novamente
+
+```
+docker start -ai nome-prog
+```
+
+## Usando CLION
+
+- Clone o repositório do git
+- Crie um novo projeto na pasta onde o repositório foi clonado (Selecione a versão 17 do C)
+- O "CMakeLists.txt" deve conter o seguinte
+
+```
+cmake_minimum_required(VERSION 3.26)
+project(Contas_Bancarias_C C)
+
+set(CMAKE_C_STANDARD 17)
+
+add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
+```
+
+- Rode utilizando a IDE
