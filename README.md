@@ -156,4 +156,11 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
 
 - Funções para Alocação Dinâmica
   ![alocacaoDinamica](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/alocacao_Dinamica_print.png)
-  - Inicializar aloca a memória inicial necessária para o funcionamento do sistema de acordo com o tamanho máximo inicial e o tamanho ocupado por uma estrutura do tipo Conta.
+  - Inicializar aloca a memória inicial necessária para o funcionamento do sistema de acordo com o tamanho máximo inicial e o tamanho ocupado por uma estrutura do tipo Conta. Ela é executada automaticamente antes de qualquer função no sistema.
+  - Finalizar desaloca/libera a memória alocada para o array de contas. Ela é a última coisa a ser executada quando o sistema é fechado.
+  - Expandir realoca a memória do array de contas quando o tamanho máximo é atigindo. Todos os dados do array de contas são passados para um array auxiliar, a memória do array de contas é liberada e o array auxiliar vira o novo array de contas.
+
+- Funções para checagem de tamanho
+  ![tamanho](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/verificacaoTamanho_print.png)
+  - isFull verifica se o número de clientes é igual ao tamanho máximo atual. Retorna TRUE ou FALSE.
+  - isEmpty verifica se o número de clientes é igual a 0, tornando o array de contas vazio. Retorna TRUE ou FALSE.
