@@ -114,3 +114,4 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
 
 - Menu
 ![menu](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/menu_print.png)
+Esta função apresenta um menu interativo para que o usuário possa escolher qual opção ele irá querer realizar no sistema, o retorno da função é a opção escolhida.
