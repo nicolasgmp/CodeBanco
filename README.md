@@ -116,7 +116,8 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
 
 - BOOLEAN
   ![boolean](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/boolean_print.png)
-Uma estrutura é definida para que seja possível de valores booleanos e não apenas inteiros como 0 e 1.
+
+  Uma estrutura é definida para que seja possível de valores booleanos e não apenas inteiros como 0 e 1.
 
 - Conta
   ![conta](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/conta_print.png)
