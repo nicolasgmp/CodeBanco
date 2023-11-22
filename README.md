@@ -109,3 +109,8 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
 ```
 
 - Rode utilizando a IDE
+
+# Funções
+
+- Menu
+![menu](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/menu_print.png)
