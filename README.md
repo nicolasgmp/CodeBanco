@@ -11,6 +11,7 @@
 - [English README version](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/READMEen.md)
 
 - Equipe
+
 ```
 Nicolas Gustavo Magrini Pereira
 Leonardo Morari dos Santos
@@ -21,6 +22,7 @@ Jesua Isaque Calefi da Silva
 Sistema para controle de contas bancárias feito com base em um dos temas propostos [neste trabalho](https://maromo71.notion.site/Trabalho-LP-Manh-e-Noite-94d594d7176f420cae42cbd910bd3716) de conclusão da disciplina de Linguagem de Programação no curso de Análise e Desenvolvimento de Sistemas da Fatec Mogi Mirim.
 
 ## Ferramentas Utilizadas
+
 - [![C](https://skillicons.dev/icons?i=c) - Linguagem C](https://en.cppreference.com/w/c)
 - [![Visual Studio Code](https://skillicons.dev/icons?i=vscode) - VSCode](https://code.visualstudio.com)
 - [![VIM](https://skillicons.dev/icons?i=vim) - VIM](https://github.com/vim/vim)
@@ -115,22 +117,23 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
 - Conta
 <p align="center">
   <img src="https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/conta_print.png" alt="Terminal">
-
-  Esta estrutura define quais atributos as contas terão, são eles: o número da conta do cliente, o nome do cliente, se ele é especial ou não (seus dados não serão públicos) e o saldo presente na conta.
+</p>
+<p align="center">
+Esta estrutura define quais atributos as contas terão, são eles: o número da conta do cliente, o nome do cliente, se ele é especial ou não (seus dados não serão públicos) e o saldo presente na conta.
 </p>
 
 - Menu
-![menu](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/menu_print.png)
-Um menu interativo é apresentado para que o usuário possa escolher qual opção ele irá querer realizar no sistema, o retorno da função é a opção escolhida.
+  ![menu](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/menu_print.png)
+  Um menu interativo é apresentado para que o usuário possa escolher qual opção ele irá querer realizar no sistema, o retorno da função é a opção escolhida.
 
 - Inserir
-![inserir](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/inserir_print.png)
-A função recebe como parâmetro um ponteiro para um array do tipo Conta. Após isso, são solicitados todos os dados do cliente que será cadastrado no sistema.
+  ![inserir](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/inserir_print.png)
+  A função recebe como parâmetro um ponteiro para um array do tipo Conta. Após isso, são solicitados todos os dados do cliente que será cadastrado no sistema.
 
 - Alterar
-![alterar](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/alterar_print.png)
-Alterar recebe como parâmetro a conta a ser modificada, portanto precisa ser uma conta já previamente encontrada no sistema com a função buscar (explicada mais abaixo). Após isso, são solicitados os dados que poderão ser modificados.
+  ![alterar](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/alterar_print.png)
+  Alterar recebe como parâmetro a conta a ser modificada, portanto precisa ser uma conta já previamente encontrada no sistema com a função buscar (explicada mais abaixo). Após isso, são solicitados os dados que poderão ser modificados.
 
 - Listar
-![listar](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/listar_print.png)
-Listar recebe um ponteiro para um array do tipo Conta e o número total de contas cadastradas no sistema. Após isso, serão exibidos os dados de todos os clientes não especiais do sistema.
+  ![listar](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/listar_print.png)
+  Listar recebe um ponteiro para um array do tipo Conta e o número total de contas cadastradas no sistema. Após isso, serão exibidos os dados de todos os clientes não especiais do sistema.
