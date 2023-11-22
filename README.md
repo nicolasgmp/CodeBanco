@@ -114,6 +114,10 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
 
 # Funções e Estruturas
 
+- BOOLEAN
+  ![boolean](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/boolean_print.png)
+  Uma estrutura é definida para que seja possível de valores booleanos e não apenas inteiros como 0 e 1.
+
 - Conta
   ![conta](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/conta_print.png)
   Esta estrutura define quais atributos as contas terão, são eles: o número da conta do cliente, o nome do cliente, se ele é especial ou não (seus dados não serão públicos) e o saldo presente na conta.
@@ -162,5 +166,5 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
 
 - Funções para checagem de tamanho
   ![tamanho](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/verificacaoTamanho_print.png)
-  - isFull verifica se o número de clientes é igual ao tamanho máximo atual. Retorna TRUE ou FALSE.
   - isEmpty verifica se o número de clientes é igual a 0, tornando o array de contas vazio. Retorna TRUE ou FALSE.
+  - isFull verifica se o número de clientes é igual ao tamanho máximo atual. Retorna TRUE ou FALSE.
