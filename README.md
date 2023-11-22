@@ -8,7 +8,7 @@
   </a>
 </p>
 
-- [English README version](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/READMEen.md)
+- [English README version](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/READMEen.md) - Under construction :warning: **Aviso:**
 
 - Equipe
 
