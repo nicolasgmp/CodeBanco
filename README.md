@@ -122,6 +122,7 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
   <p align="center">
     <img src="https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/boolean_print.png" alt="Terminal">
   </p>
+  ![menu](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/boolean_print.png)
   Uma estrutura é definida para que seja possível o retorno de valores booleanos e não apenas inteiros como 0 e 1.
 
 - Menu
