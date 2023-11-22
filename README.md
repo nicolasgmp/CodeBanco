@@ -155,6 +155,6 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
   Buscar recebe um ponteiro para um array de Contas, o número total de contas e o número da conta a ser buscada. Se a conta for encontrada, ela será retornada. Caso contrário, será retornado um valor nulo.
 
 - Funções para Alocação Dinâmica
-  ![alocacaoDinamica](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/alocacaoDinamica_print.png)
+  ![alocacaoDinamica](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/alocacao_Dinamica_print.png)
   - Inicializar
-    Esta função aloca a memória inicial necessária para o funcionamento do sistema de acordo com o tamanho máximo inicial e o tamanho ocupado por uma estrutura do tipo Conta.
+  Esta função aloca a memória inicial necessária para o funcionamento do sistema de acordo com o tamanho máximo inicial e o tamanho ocupado por uma estrutura do tipo Conta.
