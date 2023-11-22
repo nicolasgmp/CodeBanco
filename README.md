@@ -114,15 +114,15 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
 
 # Funções e Estruturas
 
-- Boolean
-
-  ![boolean](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/boolean_print.png)
-
-  Uma estrutura é definida para que seja possível o retorno de valores booleanos e não apenas inteiros como 0 e 1.
-
 - Conta
   ![conta](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/conta_print.png)
-Esta estrutura define quais atributos as contas terão, são eles: o número da conta do cliente, o nome do cliente, se ele é especial ou não (seus dados não serão públicos) e o saldo presente na conta.
+  Esta estrutura define quais atributos as contas terão, são eles: o número da conta do cliente, o nome do cliente, se ele é especial ou não (seus dados não serão públicos) e o saldo presente na conta.
+
+- Boolean
+  <p align="center">
+    <img src="https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/boolean.png" alt="Terminal">
+  </p>
+  Uma estrutura é definida para que seja possível o retorno de valores booleanos e não apenas inteiros como 0 e 1.
 
 - Menu
   ![menu](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/menu_print.png)
@@ -162,6 +162,7 @@ Esta estrutura define quais atributos as contas terão, são eles: o número da 
 
 - Funções para Alocação Dinâmica
   ![alocacaoDinamica](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/alocacao_Dinamica_print.png)
+
   - Inicializar aloca a memória inicial necessária para o funcionamento do sistema de acordo com o tamanho máximo inicial e o tamanho ocupado por uma estrutura do tipo Conta. Ela é executada automaticamente antes de qualquer função no sistema.
   - Finalizar desaloca/libera a memória alocada para o array de contas. Ela é a última coisa a ser executada quando o sistema é fechado.
   - Expandir realoca a memória do array de contas quando o tamanho máximo é atigindo. Todos os dados do array de contas são passados para um array auxiliar, a memória do array de contas é liberada e o array auxiliar vira o novo array de contas.
