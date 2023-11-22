@@ -33,7 +33,7 @@ int menu()
 {
     int op = OP_NAO_SELECIONADA;
 
-    printf("Banco\n");
+    printf("\nBanco\n");
     printf("%d - Inserir Nova Conta\n", OP_INSERIR);
     printf("%d - Alterar Conta\n", OP_ALTERAR);
     printf("%d - Listar Contas\n", OP_LISTAR);
@@ -162,7 +162,7 @@ void depositar(Conta *conta, double valor)
 {
     if (isEmpty())
     {
-        printf("Lista de Clientes vazia\n");
+        printf("\nLista de Clientes vazia\n");
         return;
     }
 
@@ -186,7 +186,7 @@ void sacar(Conta *conta, double valor)
 {
     if (isEmpty())
     {
-        printf("Lista de Clientes vazia\n");
+        printf("\nLista de Clientes vazia\n");
         return;
     }
 
@@ -194,7 +194,7 @@ void sacar(Conta *conta, double valor)
     {
         if (conta->saldo < valor)
         {
-            printf("Saldo insuficiente!\n");
+            printf("\nSaldo insuficiente!\n");
             return;
         }
         conta->saldo -= valor;
@@ -214,7 +214,7 @@ void imprimir(Conta *conta)
 {
     if (isEmpty())
     {
-        printf("Lista de clientes vazia\n");
+        printf("\nLista de clientes vazia\n");
         return;
     }
 
@@ -242,7 +242,7 @@ double saldoGeral(Conta *l_contas, int totalContas)
 {
     if (isEmpty())
     {
-        printf("Lista de clientes vazia\n");
+        printf("\nLista de clientes vazia\n");
         return 0.0;
     }
 

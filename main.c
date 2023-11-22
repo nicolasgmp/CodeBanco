@@ -29,7 +29,7 @@ int main()
 
             if (!encontrado)
             {
-                printf("Cliente não encontrado");
+                printf("Cliente não encontrado\n\n");
                 break;
             }
 
@@ -44,7 +44,7 @@ int main()
             encontrado = buscar(contas, contadorClientes, num);
             if (!encontrado)
             {
-                printf("Cliente não encontrado");
+                printf("Cliente não encontrado\n\n");
                 break;
             }
 
@@ -58,7 +58,7 @@ int main()
             encontrado = buscar(contas, contadorClientes, num);
             if (!encontrado)
             {
-                printf("Cliente não encontrado");
+                printf("Cliente não encontrado\n\n");
                 break;
             }
             printf("Digite o valor a ser sacado: ");
@@ -71,13 +71,13 @@ int main()
             encontrado = buscar(contas, contadorClientes, num);
             if (!encontrado)
             {
-                printf("Cliente não encontrado");
+                printf("Cliente não encontrado\n\n");
                 break;
             }
             imprimir(encontrado);
             break;
         case OP_SALDOGERAL:
-            printf("Saldo acumulado: %.4lf\n", saldoGeral(contas, contadorClientes));
+            printf("Saldo acumulado: %.4lf\n\n", saldoGeral(contas, contadorClientes));
             break;
         case OP_SAIR:
             break;
