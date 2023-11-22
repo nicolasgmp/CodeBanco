@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_SIZE 2
+#define MAX_SIZE 5
 
 enum
 {
