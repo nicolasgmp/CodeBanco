@@ -114,4 +114,8 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
 
 - Menu
 ![menu](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/menu_print.png)
-Esta função apresenta um menu interativo para que o usuário possa escolher qual opção ele irá querer realizar no sistema, o retorno da função é a opção escolhida.
+Um menu interativo é apresentado para que o usuário possa escolher qual opção ele irá querer realizar no sistema, o retorno da função é a opção escolhida.
+
+- Inserir
+![inserir](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/inserir_print.png)
+A função recebe como parâmetro a lista de contas a ser modificada. Após isso, são solicitados todos os dados do cliente que será cadastrado no sistema.
