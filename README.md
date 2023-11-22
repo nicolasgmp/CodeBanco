@@ -128,8 +128,33 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
 
 - Alterar
   ![alterar](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/alterar_print.png)
-  Alterar recebe como parâmetro a conta a ser modificada, portanto precisa ser uma conta já previamente encontrada no sistema com a função buscar (explicada mais abaixo). Após isso, são solicitados os dados que poderão ser modificados.
+  Alterar recebe um ponteiro para a conta a ser modificada, portanto precisa ser uma conta já previamente encontrada no sistema com a função buscar (explicada mais abaixo). Após isso, são solicitados os dados que poderão ser modificados.
 
 - Listar
   ![listar](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/listar_print.png)
   Listar recebe um ponteiro para um array do tipo Conta e o número total de contas cadastradas no sistema. Após isso, serão exibidos os dados de todos os clientes não especiais do sistema.
+
+- Depositar
+  ![depositar](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/depositar_print.png)
+  Depositar recebe um ponteiro para a conta, encontrada por "buscar()", que receberá o depósito e o valor a ser depositado.
+
+- Sacar
+  ![sacar](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/sacar_print.png)
+  Sacar recebe um ponteiro para a conta, encontrada por "buscar()", a qual será realizada o saque e o valor a ser sacado. Caso o valor seja maior do que o saldo presente na conta, uma mensagem será exibida e a função parará.
+
+- Imprimir
+  ![imprimir](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/imprimir_print.png)
+  Imprimir recebe um ponteiro para a conta que será exibida na tela, como é necessário saber o número da conta, clientes especiais poderão ser exibidos.
+
+- Saldo Geral
+  ![saldoGeral](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/saldoGeral_print.png)
+  Saldo Geral recebe um ponteiro para um array de Contas e o número total de contas. Após isso, o valor somado do saldo de todas as contas presentes no sistema será exibido.
+
+- Buscar
+  ![buscar](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/buscar_print.png)
+  Buscar recebe um ponteiro para um array de Contas, o número total de contas e o número da conta a ser buscada. Se a conta for encontrada, ela será retornada. Caso contrário, será retornado um valor nulo.
+
+- Funções para Alocação Dinâmica
+  ![alocacaoDinamica](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/alocacaoDinamica_print.png)
+  - Inicializar
+    Esta função aloca a memória inicial necessária para o funcionamento do sistema de acordo com o tamanho máximo inicial e o tamanho ocupado por uma estrutura do tipo Conta.
