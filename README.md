@@ -118,10 +118,6 @@ add_executable(Contas_Bancarias_C main.c ContaBancaria.c ContaBancaria.h)
 ![menu](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/menu_print.png)
 Um menu interativo é apresentado para que o usuário possa escolher qual opção ele irá querer realizar no sistema, o retorno da função é a opção escolhida.
 
-- Conta
-![conta](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/conta_print.png)
-Esta estrutura define quais atributos as contas terão, são eles: o número da conta do cliente, o nome do cliente, se ele é especial ou não (seus dados não serão públicos) e o saldo presente na conta.
-
 - Inserir
 ![inserir](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/imgs/inserir_print.png)
 A função recebe como parâmetro um ponteiro para um array do tipo Conta. Após isso, são solicitados todos os dados do cliente que será cadastrado no sistema.
