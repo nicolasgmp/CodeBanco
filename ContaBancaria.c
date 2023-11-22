@@ -123,7 +123,7 @@ void alterar(Conta *conta)
 /**
  * Função: listar
  *
- * Verifica se a lista passada como parâmetro não é vazia. Se não estiver vazia, um loop for de 0 até o total de contas cadastradas é realizado exibindo os detalhes de cada um dos clientes, incluindo número de conta, nome, status e saldo.
+ * Verifica se a lista passada como parâmetro não é vazia. Se não estiver vazia, um loop for de 0 até o total de contas cadastradas é realizado exibindo os detalhes de cada um dos clientes caso não sejam especiais, incluindo número de conta, nome, status e saldo.
  *
  * @param l_contas Ponteiro para a lista de contas existentes.
  * @param totalContas Número inteiro da quantidade de contas cadastradas.
@@ -140,10 +140,13 @@ void listar(Conta *l_contas, int totalContas)
     for (int i = 0; i < totalContas; i++)
     {
         contaAtual = &l_contas[i];
-        printf("Numero: %d\n", contaAtual->numero);
-        printf("Nome: %s", contaAtual->cliente);
-        printf("Especial: %s\n", contaAtual->especial == TRUE ? "Sim" : "Nao");
-        printf("Saldo: %.2lf\n\n", contaAtual->saldo);
+        if (contaAtual->especial == FALSE)
+        {
+            printf("Numero: %d\n", contaAtual->numero);
+            printf("Nome: %s", contaAtual->cliente);
+            printf("Especial: %s\n", "Nao");
+            printf("Saldo: %.2lf\n\n", contaAtual->saldo);
+        }
     }
 }
 
