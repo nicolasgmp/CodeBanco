@@ -23,13 +23,13 @@ int main()
             inserir(contas);
             break;
         case OP_ALTERAR:
-            printf("Digite o número da conta: ");
+            printf("Digite o numero da conta: ");
             scanf("%d", &num);
             encontrado = buscar(contas, contadorClientes, num);
 
             if (!encontrado)
             {
-                printf("Cliente não encontrado\n\n");
+                printf("Cliente nao encontrado\n\n");
                 break;
             }
 
@@ -44,7 +44,7 @@ int main()
             encontrado = buscar(contas, contadorClientes, num);
             if (!encontrado)
             {
-                printf("Cliente não encontrado\n\n");
+                printf("Cliente nao encontrado\n\n");
                 break;
             }
 
@@ -58,7 +58,7 @@ int main()
             encontrado = buscar(contas, contadorClientes, num);
             if (!encontrado)
             {
-                printf("Cliente não encontrado\n\n");
+                printf("Cliente nao encontrado\n\n");
                 break;
             }
             printf("Digite o valor a ser sacado: ");
@@ -71,7 +71,7 @@ int main()
             encontrado = buscar(contas, contadorClientes, num);
             if (!encontrado)
             {
-                printf("Cliente não encontrado\n\n");
+                printf("Cliente nao encontrado\n\n");
                 break;
             }
             imprimir(encontrado);
