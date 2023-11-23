@@ -25,7 +25,7 @@ Sistema para controle de contas bancárias feito com base em um dos temas propos
 
 - [![C](https://skillicons.dev/icons?i=c) - Linguagem C](https://en.cppreference.com/w/c)
 - [![Visual Studio Code](https://skillicons.dev/icons?i=vscode) - VSCode](https://code.visualstudio.com)
-- [![VIM](https://skillicons.dev/icons?i=vim) - VIM](https://github.com/vim/vim)
+- [![VIM](https://skillicons.dev/icons?i=vim) - VIM plugin no VSCode](https://github.com/vim/vim)
 
 # Como Executar
 
