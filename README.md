@@ -10,6 +10,10 @@
 
 - [English README version](https://github.com/magrininicolas/Contas-Bancarias-C/blob/main/READMEen.md) - :warning: **Under construction**
 
+## Vídeos Explicativos
+- [Parte 1](https://www.youtube.com/watch?v=LC_gW7JZM8w)
+- [Parte 2](https://www.youtube.com/watch?v=NEqkzazQ5JM)
+
 - Equipe
 
 ```
