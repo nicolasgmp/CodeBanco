@@ -14,7 +14,7 @@
 - [Parte 1](https://www.youtube.com/watch?v=LC_gW7JZM8w)
 - [Parte 2](https://www.youtube.com/watch?v=NEqkzazQ5JM)
 
-- Equipe
+## Equipe
 
 ```
 Nicolas Gustavo Magrini Pereira
