@@ -1,5 +1,5 @@
 <h1 align="center">Sistema de Contas Bancárias em C</h1>
-<h2 align="center"> Code Banco</h2>
+<h1 align="center"> Code Banco</h1>
 <p align="center">
   <a href="https://github.com/magrininicolas/placesAPIMVC/blob/main/LICENSE">
     <img src="https://img.shields.io/npm/l/react" alt="NPM License" />
